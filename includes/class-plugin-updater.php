@@ -135,7 +135,14 @@ class GitHub_Plugin_Updater extends GitHub_Updater {
 		}
 
 		foreach ( (array) $this->config as $plugin ) {
-			$remote_is_newer = ( 1 === version_compare( $plugin->remote_version, $plugin->local_version ) );
+			$operator = '>';
+			
+			//Force update if branch is develop and remote_version is '>=' 
+			if('develop' === $plugin->branch) {
+				$operator = '>=';
+			}
+			
+			$remote_is_newer = version_compare( $plugin->remote_version, $plugin->local_version, $operator );
 
 			if ( $remote_is_newer ) {
 				$response = array(
