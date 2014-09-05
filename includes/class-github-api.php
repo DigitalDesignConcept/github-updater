@@ -41,7 +41,7 @@ class GitHub_Updater_GitHub_API extends GitHub_Updater {
 	 * @return array
 	 */
 	public static function add_plugin_headers( $extra_headers ) {
-		$ghu_extra_headers     = array( 'GitHub Plugin URI', 'GitHub Branch', 'GitHub Access Token' );
+		$ghu_extra_headers     = array( 'GitHub Plugin URI', 'GitHub Branch', 'GitHub Access Token', 'GitHub Fork' );
 		parent::$extra_headers = array_unique( array_merge( parent::$extra_headers, $ghu_extra_headers ) );
 		$extra_headers         = array_merge( (array) $extra_headers, (array) $ghu_extra_headers );
 
@@ -323,7 +323,11 @@ class GitHub_Updater_GitHub_API extends GitHub_Updater {
 	 */
 	public function get_repo_meta() {
 		$response   = $this->get_transient( 'meta' );
-		$meta_query = '?q=' . $this->type->repo . '+user:' . $this->type->owner;
+		$is_fork = '';
+		if(! empty( $this->type->fork ) && $this->type->fork == 'true') {
+			$is_fork = '+fork:true';
+		}
+		$meta_query = '?q=' . $this->type->repo . '+user:' . $this->type->owner . $is_fork;
 
 		if ( ! $response ) {
 			$response = $this->api( '/search/repositories' . $meta_query );

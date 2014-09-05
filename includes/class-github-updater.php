@@ -153,6 +153,12 @@ class GitHub_Updater {
 					}
 					$git_repo['access_token'] = $headers['GitHub Access Token'];
 					break;
+				case 'GitHub Fork':
+					if ( empty( $headers['GitHub Fork'] ) ) {
+						break;
+					}
+					$git_repo['fork'] 		  = $headers['GitHub Fork'];
+					break;
 			}
 		}
 
