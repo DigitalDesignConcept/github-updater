@@ -1,4 +1,4 @@
-#### 2.8.1
+#### 2.8.2
 * Forced Update in develop branch if remote_version >=
 
 #### 2.8.1
