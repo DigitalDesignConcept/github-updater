@@ -1,3 +1,5 @@
+#### 2.8.1
+* Forced Update in develop branch if remote_version >=
 
 #### 2.8.1
 * fix for WP Coding Guidelines
