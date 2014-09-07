@@ -13,7 +13,7 @@ Plugin Name:       GitHub Updater
 Plugin URI:        https://github.com/UnPoilTefal/github-updater
 Description:       A plugin to automatically update GitHub or Bitbucket hosted plugins and themes into WordPress. Plugin class based upon <a href="https://github.com/codepress/github-plugin-updater">codepress/github-plugin-updater</a>. Theme class based upon <a href="https://github.com/WordPress-Phoenix/whitelabel-framework">Whitelabel Framework</a> modifications.
 Version:           2.8.2
-Requires at least: 3.9
+Requires at least: 3.8.2
 Tested up to:      4.0
 Author:            Andy Fragen forked by Frédéric DESCHAMPS
 License:           GNU General Public License v2
